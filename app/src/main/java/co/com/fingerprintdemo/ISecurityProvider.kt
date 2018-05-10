@@ -18,4 +18,6 @@ interface ISecurityProvider {
     fun encrypt(textToEncrypt: String): String
 
     fun decrypt(encryptText: String): String
+
+    fun removeAuth()
 }

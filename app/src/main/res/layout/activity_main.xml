@@ -17,6 +17,17 @@
         app:layout_constraintRight_toRightOf="parent" />
 
 
+    <Button
+        android:id="@+id/btnRemoveAuth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Remove Auth"
+        app:layout_constraintBottom_toTopOf="@+id/btnAuth"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
     <TextView
         android:id="@+id/tvEncryptText"
         android:layout_width="0dp"

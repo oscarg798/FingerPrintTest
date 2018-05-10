@@ -7,6 +7,7 @@ import android.hardware.fingerprint.FingerprintManager
  */
 interface IFingerPrintAuthHelper {
 
+    @Throws(FingerPrintException::class)
     fun auth(fingerprintManager: FingerprintManager, cryptoObject: FingerprintManager.CryptoObject)
 
 

@@ -9,6 +9,7 @@ import android.os.CancellationSignal
 class FingerPrintAuthHelper(private val mCallback: IFingerPrintAuthHelper.FingerPrintAuthHelperCallbacks) : FingerprintManager.AuthenticationCallback(), IFingerPrintAuthHelper {
 
 
+    @Throws(FingerPrintException::class)
     override fun auth(fingerprintManager: FingerprintManager, cryptoObject: FingerprintManager.CryptoObject) {
         fingerprintManager.authenticate(cryptoObject,
                 CancellationSignal(), 0, this, null)

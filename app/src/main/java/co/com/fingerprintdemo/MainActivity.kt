@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import java.security.InvalidKeyException
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -41,10 +42,20 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+        btnRemoveAuth?.setOnClickListener {
+            mSecurityProvider.removeAuth()
+        }
+
         btnAuth?.setOnClickListener {
-            mFingerPrintAuthHelper.auth(mFingerprintManager, mSecurityProvider.getCryptoObject())
-            Toast.makeText(this@MainActivity, "Please use your signature", Toast.LENGTH_LONG)
-                    .show()
+            try {
+                mFingerPrintAuthHelper.auth(mFingerprintManager, mSecurityProvider.getCryptoObject())
+                Toast.makeText(this@MainActivity, "Please use your signature", Toast.LENGTH_LONG)
+                        .show()
+            } catch (e: FingerPrintException) {
+                e.printStackTrace()
+
+            }
+
         }
     }
 }
